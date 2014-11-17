@@ -16,16 +16,14 @@ O(N)
 https://codility.com/demo/results/demoBZR38E-XPF/
 '''
 
-def solution(A):
-    D = {}
+def solution(K, A):
+    result = 0
+    
+    rl = 0
     for x in A:
-        t = abs(x)
-        if t not in D:
-            D[t] = 1
+        rl += x
+        if rl >= K:
+            rl = 0
+            result += 1
     
-    print D
-    total = 0
-    for key in D:
-        total += D[key]
-    
-    return total
+    return result
